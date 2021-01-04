@@ -1,0 +1,21 @@
+.button {
+  margin-right: 10px;
+  padding: 3px 10px;
+
+  background-color: #fff;
+  border: 1px solid gray;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  background-color: blue;
+  color: #fff;
+}
+
+.button:active {
+  background-color: green;
+  color: #fff;
+}
