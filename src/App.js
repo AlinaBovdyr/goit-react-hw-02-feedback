@@ -19,27 +19,12 @@ export default class App extends Component {
     this.setState(prevState => {
       return { [name]: prevState[name] + 1 };
     });
-
-    this.countTotalFeedback();
-    this.countPositiveFeedbackPercentage();
   };
 
-  countTotalFeedback() {
-    this.setState(prevState => {
-      const sum = prevState.good + prevState.neutral + prevState.bad;
-      return { total: sum };
-    });
-  }
-
-  countPositiveFeedbackPercentage() {
-    this.setState(prevState => {
-      const percentage = Math.round((prevState.good / prevState.total) * 100);
-      return { positivePercentage: percentage };
-    });
-  }
-
   render() {
-    const { good, neutral, bad, total, positivePercentage } = this.state;
+    const { good, neutral, bad } = this.state;
+    const total = Object.values(this.state).reduce((acc, el) => acc + el, 0);
+    const positivePercentage = Math.round((good / total) * 100);
 
     return (
       <Section title="Please leave feedback">

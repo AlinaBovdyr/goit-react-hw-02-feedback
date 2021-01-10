@@ -9,13 +9,27 @@
   cursor: pointer;
 }
 
-.button:hover,
-.button:focus {
-  background-color: blue;
+.button[name='good']:hover,
+.button[name='good']:focus {
+  background-color: #19bb19bf;
   color: #fff;
 }
 
-.button:active {
-  background-color: green;
+.button[name='bad']:hover,
+.button[name='bad']:focus {
+  background-color: #f94b4b;
+  color: #fff;
+}
+
+.button[name='neutral']:hover,
+.button[name='neutral']:focus {
+  background-color: #ffff6a;
+  color: #858585;
+}
+
+.button[name='good']:active,
+.button[name='bad']:active,
+.button[name='neutral']:active {
+  background-color: #0000ff82;
   color: #fff;
 }
