@@ -21,10 +21,22 @@ export default class App extends Component {
     });
   };
 
+  countTotalFeedback = () => {
+    return Object.values(this.state).reduce((acc, el) => acc + el, 0);
+  };
+
+  countPositiveFeedbackPercentage = (positive, total) => {
+    return Math.round((positive / total) * 100);
+  };
+
   render() {
     const { good, neutral, bad } = this.state;
-    const total = Object.values(this.state).reduce((acc, el) => acc + el, 0);
-    const positivePercentage = Math.round((good / total) * 100);
+
+    const total = this.countTotalFeedback();
+    const positivePercentage = this.countPositiveFeedbackPercentage(
+      good,
+      total,
+    );
 
     return (
       <Section title="Please leave feedback">
